@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MissileLauncher : MonoBehaviour
 {
@@ -23,10 +22,7 @@ public class MissileLauncher : MonoBehaviour
     public static MissileLauncher Singleton;
     private void Awake()
     {
-        if(Singleton is null)
-        {
             Singleton = this;
-        }
         
         _launchMisileTimer = _launchMisileTime;
     }

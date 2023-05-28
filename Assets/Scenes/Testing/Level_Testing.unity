@@ -5393,8 +5393,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 895364952}
+  - component: {fileID: 895364953}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: MissileLauncherTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5422,6 +5423,19 @@ RectTransform:
   m_AnchoredPosition: {x: -133.2, y: 199.60724}
   m_SizeDelta: {x: 1013.74, y: 35.450043}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &895364953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895364951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5537661e1ce33df4097f5cb965a32083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barRectTransform: {fileID: 1723965528}
 --- !u!1 &901357276
 GameObject:
   m_ObjectHideFlags: 0
@@ -9549,7 +9563,6 @@ GameObject:
   - component: {fileID: 1723965528}
   - component: {fileID: 1723965531}
   - component: {fileID: 1723965530}
-  - component: {fileID: 1723965529}
   m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
@@ -9575,20 +9588,8 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -170.00002, y: -24.600029}
-  m_SizeDelta: {x: 673.74, y: 21.7}
+  m_SizeDelta: {x: 673, y: 21}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &1723965529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723965527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5537661e1ce33df4097f5cb965a32083, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1723965530
 MonoBehaviour:
   m_ObjectHideFlags: 0
