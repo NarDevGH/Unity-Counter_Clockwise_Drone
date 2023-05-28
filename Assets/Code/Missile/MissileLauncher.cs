@@ -22,7 +22,7 @@ public class MissileLauncher : MonoBehaviour
     public static MissileLauncher Singleton;
     private void Awake()
     {
-            Singleton = this;
+        Singleton = this;
         
         _launchMisileTimer = _launchMisileTime;
     }

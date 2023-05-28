@@ -20,10 +20,7 @@ public class CrateDeliverySystem : MonoBehaviour
     public static CrateDeliverySystem singleton;
     private void Awake()
     {
-        if(singleton == null)
-        {
-            singleton = this;
-        }
+       singleton = this;
     }
 
     public void DispatchNewCrate()

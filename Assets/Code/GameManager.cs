@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     const int GAME_SCENE_INDEX = 1;
 
-    public UnityEvent onPointsChange;
+    [HideInInspector]public UnityEvent onPointsChange;
 
     public int points => _points;
     [SerializeField] private bool _startOnAwake;
@@ -26,10 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(singleton is null)
-        {
-            singleton = this;
-        }
+        singleton = this;
         _player?.GetComponent<Drone>().onDestroyed.AddListener(OnPLayerDestroyed);
     }
 
