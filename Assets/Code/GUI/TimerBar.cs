@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TimerBar : MonoBehaviour
 {
-    [SerializeField] private MissileLauncher _missileLauncher;
 
     private float _startWidth;
     private RectTransform _rectTransform;
@@ -16,7 +15,7 @@ public class TimerBar : MonoBehaviour
 
     private void Update()
     {
-        if (_missileLauncher is not null)
+        if (MissileLauncher.Singleton is not null)
         {
             float percentage = ((CurrentTime * 100) / MaxTime) / 100;
             float width = _startWidth * percentage;
@@ -24,6 +23,6 @@ public class TimerBar : MonoBehaviour
         }
     }
 
-    private float MaxTime => _missileLauncher.LaunchMisileTime;
-    private float CurrentTime => _missileLauncher.LaunchMisileTimer;
+    private float MaxTime => MissileLauncher.Singleton.LaunchMisileTime;
+    private float CurrentTime => MissileLauncher.Singleton.LaunchMisileTimer;
 }

@@ -4,11 +4,15 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     const int GAME_SCENE_INDEX = 1;
+
+    public UnityEvent onPointsChange;
+
     public int points => _points;
     [SerializeField] private bool _startOnAwake;
     [SerializeField] private Transform _player;
@@ -17,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Space]
     [SerializeField] private MissileLauncher _missileLauncher;
     [Header("Setup")]
+    [SerializeField] private GameObject _gamePanel;
     [SerializeField] private GameObject _gameoverPanel;
 
     private int _points;
@@ -53,6 +58,7 @@ public class GameManager : MonoBehaviour
     {
         DestroyAllMissiles();
         _missileLauncher.StopLauncher();
+        _gamePanel.SetActive(false);
         _gameoverPanel.SetActive(true);
     }
 
@@ -68,6 +74,7 @@ public class GameManager : MonoBehaviour
     private void OnCreateDelivered()
     {
         _points += _pointsXDelivery;
+        onPointsChange.Invoke();
         _missileLauncher.ResetLauncher();
         DestroyAllMissiles();
     }

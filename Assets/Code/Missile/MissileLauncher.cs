@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MissileLauncher : MonoBehaviour
 {
     public float LaunchMisileTime => _launchMisileTime;
     public float LaunchMisileTimer => _launchMisileTimer;
+
+    [HideInInspector]public UnityEvent onMissileLaunched;
 
     [SerializeField] private Transform _missileTarget;
     [SerializeField, Min(0)] private float _launchMisileTime;
@@ -17,8 +20,14 @@ public class MissileLauncher : MonoBehaviour
     private float _launchMisileTimer;
     private Coroutine _timerCoroutine;
 
+    public static MissileLauncher Singleton;
     private void Awake()
     {
+        if(Singleton is null)
+        {
+            Singleton = this;
+        }
+        
         _launchMisileTimer = _launchMisileTime;
     }
 
@@ -61,6 +70,7 @@ public class MissileLauncher : MonoBehaviour
             if (_launchMisileTimer == 0)
             {
                 OnLaunchMisileTimerOut();
+                onMissileLaunched.Invoke();
             }
         }
     }
